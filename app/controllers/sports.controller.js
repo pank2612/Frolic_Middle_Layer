@@ -11,7 +11,10 @@ exports.create = (req, res) => {
 console.log("name :" + req.body.name);
   // Create a Sports
   const sport = new Sports({
-    name: req.body.name});
+    name: req.body.name,
+    shortCode : req.body.shortCode,
+    logo : req.body.logo,
+  });
 
   // Save Sports in the database
   Sports.create(sport, (err, data) => {

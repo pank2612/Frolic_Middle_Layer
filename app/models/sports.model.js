@@ -3,6 +3,8 @@ const sql = require("../config/db.js");
 // constructor
 const Sports = function(sports) {
   this.name = sports.name;
+  this.shortCode = sports.shortCode;
+  this.logo = sports.logo;
 };
 
 Sports.create = (newSports, result) => {
@@ -53,8 +55,8 @@ Sports.updateById = (id, sports, result) => {
   console.log(id);
   console.log(sports.name);
   sql.query(
-    "UPDATE sports SET name = ? WHERE id = ?",
-    [sports.name, id],
+    "UPDATE sports SET name = ?, shortCode = ?, logo = ? WHERE id = ?",
+    [sports.name, sports.shortCode, sports.logo, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
