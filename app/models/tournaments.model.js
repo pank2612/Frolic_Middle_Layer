@@ -6,7 +6,7 @@ const Tournaments = function(tournaments) {
   this.name = tournaments.name;
   this.description = tournaments.description;
   this.startDate = tournaments.startDate;
-  this,endDate = tournaments.endDate;
+  this.endDate = tournaments.endDate;
   this.logo = tournaments.logo;
   this.maxPoints = tournaments.maxPoints;
   this.maxPlayers = tournaments.maxPlayers;
@@ -19,6 +19,7 @@ const Tournaments = function(tournaments) {
 };
 
 Tournaments.create = (newTournaments, result) => {
+
   sql.query("INSERT INTO tournaments SET ?", newTournaments, (err, res) => {
     if (err) {
       console.log("error: ", err);
